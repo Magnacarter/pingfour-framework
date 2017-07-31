@@ -1,0 +1,24 @@
+/* Manifest ------------ */
+@import "bootstrap-custom";
+@import "vendors/bootstrap/variables";
+@import "vendors/bootstrap/mixins";
+@import "vendors/slick";
+
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/typography';
+@import 'base/helpers';
+@import 'base/globals';
+
+@import 'elements/buttons';
+@import 'elements/form';
+
+@import 'areas/navigation';
+@import 'areas/header';
+@import 'areas/footer';
+@import 'areas/sidebar';
+
+@import 'pages/page';
+@import 'pages/blog';
+@import 'pages/about';
+@import 'pages/landing-page';

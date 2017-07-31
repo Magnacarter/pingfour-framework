@@ -1,0 +1,35 @@
+/* Globals ------------ */
+body {
+	min-width:320px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	line-height:1.5;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+img {
+	vertical-align: top;
+	height: auto;
+	max-width: 100%;
+}
+.container{
+	position: relative;
+	z-index: 888;
+}
+strong {
+	font-weight: 800 !important;
+}
+//WordPress text wrapping
+img.alignright { 
+	float: right; margin: 0 0 1.4em 1.4em;
+	@media screen and (max-width: 480px) {
+		float: none;
+		display: block;
+		margin: 30px auto;
+	}
+}
+img.alignleft { float: left; margin: 0 1.4em 1.4em 0; }
+img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignright { float: right; }
+.alignleft { float: left; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }

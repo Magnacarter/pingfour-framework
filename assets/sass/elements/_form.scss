@@ -1,0 +1,13 @@
+/* Forms ----- */
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $light-blue !important;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: $light-blue !important;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: $light-blue !important;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: $light-blue !important;
+}

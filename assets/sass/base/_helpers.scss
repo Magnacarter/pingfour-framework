@@ -1,0 +1,161 @@
+// list reset
+	%listreset {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+//UPPERCASE
+.uppercase {
+	text-transform: uppercase;
+}
+
+//show
+.show {
+	display: block;
+}
+
+//hide
+.hide {
+	display: none;
+	opacity: 0;
+	transition: opacity .5s;
+}
+
+// two column list
+%two-column-list {
+	-moz-column-count: 2;
+	-moz-column-gap: 0px;
+	-webkit-column-count: 2;
+	-webkit-column-gap:  0px;
+	column-count: 2;
+	column-gap: 0px;
+	@media( max-width: 1199px ) {
+		-moz-column-gap: 0px;
+		-webkit-column-count: 1;
+		-webkit-column-gap: 0px;
+		column-count: 1;
+		column-gap: 0px;
+	}
+}
+
+// remove two column list
+%remove-two-column-list {
+	-moz-column-count: 1;
+	-moz-column-gap: 0px;
+	-webkit-column-count: 1;
+	-webkit-column-gap: 0px;
+	column-count: 1;
+	column-gap: 0px;
+}
+
+// text center
+.text-center {
+	text-align: center;
+}
+
+// text right
+.text-right {
+	@media( min-width: 768px ) {
+		text-align: right;
+	}
+}
+
+// text left
+.text-left {
+	@media( min-width: 768px ) {
+		text-align: left;
+	}
+}
+
+// float right
+.float-right {
+	@media( min-width: 768px ) {
+		float: right;
+	}
+}
+
+// float left
+.float-left {
+	@media( min-width: 768px ) {
+		float: left;
+	}
+}
+
+// box shawdow buttons
+%boxshadow {
+	box-shadow: 3px 3px 3px black;
+}
+
+// clearfix
+%clearfix {
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+.clearfix {
+	@extend %clearfix;
+}
+
+// transition
+%transition {
+	transition: all 0.3s ease-in-out;
+}
+
+//pad left
+.pad-left-15 {
+	padding-left: 15px;
+}
+.pad-left-30-sm {
+	@media( max-width: 767px ) {
+		padding-left: 30px;
+	}
+}
+
+//pad right
+.pad-right-15 {
+	padding-right: 15px;
+}
+.pad-right-30-sm {
+	@media( max-width: 768px ) {
+		padding-right: 30px;
+	}
+}
+
+// no padding
+.no-pad {
+	@media( min-width: 768px ) {
+		padding: 0 !important;
+	}
+}
+.no-pad-mobile {
+	padding: 0;
+}
+.no-pad-left {
+	@media (min-width: 768px) {
+		padding-left: 0;
+	}
+}
+.no-pad-left-md {
+	@media (min-width: 1200px) {
+		padding-left: 0;
+	}
+}
+.no-pad-left-sm {
+	@media (max-width: 1199px) {
+		padding-left: 0;
+	}
+}
+.no-pad-left-mobile {
+	padding-left: 0;
+}
+.no-pad-right {
+	@media( min-width: 768px ) {
+		padding-right: 0;
+	}
+}
+.no-pad-right-mobile {
+	padding-right: 0;
+}
