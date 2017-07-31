@@ -113,7 +113,7 @@ module.exports = function ( moduleRoot ) {
 
 	var stylesSettings = {
 		clean: {
-			src : [ distDirs.css + "*.*", moduleRoot + "style.css", moduleRoot + "style.min.css" ]
+			src : [ distDirs.css + "*.*", moduleRoot + "style.min.css" ]
 		},
 		postcss: {
 			src: [ assetDirs.sass + '*.scss' ],
