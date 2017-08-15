@@ -2,8 +2,10 @@
 /**
  * Build CPTs
  *
- * @package Pingfour\theme\includes
+ * @package Pingfour/theme/includes
  * @since 1.0.0
+ * @author Adam Carter
+ * @licence GNU-2.0+
  */
 
 namespace Pingfour\theme\includes;

@@ -188,4 +188,200 @@ class Pingfour_Theme {
 
 	}
 
+	/**
+	 * Get h1 title for any template
+	 *
+	 * @return void
+	 */
+	public static function h1_title() {
+
+		global $post;
+
+		if( ! is_front_page() ) : ?>
+
+			<div class="h1-title">
+
+				<?php if( is_search() ) :
+
+					$search_term = get_search_query() ?>
+
+					<h1>You Searched For "<?php echo esc_html( $search_term ) ?>"</h1>
+
+				<?php elseif( is_home() ) : ?>
+
+					<h1>Blog</h1>
+
+				<?php elseif( is_category() ) :
+
+					$arch_title = get_the_archive_title( $post->ID ) ?>
+
+					<h1><?php echo esc_html( $arch_title ) ?></h1>
+
+				<?php elseif( is_singular() ) : ?>
+
+					<h1><?php the_title() ?></h1>
+
+				<?php elseif( is_single( 'post' ) ) : ?>
+
+					<h1><?php the_title() ?></h1>
+
+				<?php elseif( is_author() ) :
+
+					$author_name = get_the_author() ?>
+
+					<h1>Posts By <?php echo esc_html( $author_name ) ?></h1>
+
+				<?php elseif( is_post_type_archive( 'testimonial' ) ) : ?>
+
+					<h1>What our clients say</h1>
+
+				<?php elseif( is_post_type_archive() ) : ?>
+
+					<h1><?php the_title() ?></h1>
+
+				<?php elseif( is_archive() ) : ?>
+
+					<h1>Archives</h1>
+
+				<?php elseif( is_category() ) :
+
+					$cat_name = get_cat_name( $post->ID ) ?>
+
+					<h1><?php echo esc_html( $cat_name ) ?></h1>
+
+				<?php elseif( is_404() ) : ?>
+
+					<h1 style="text-align: center; padding: 0 45px;">Oops! We can’t seem to find the page you’re looking for. <span>(Error code: 404)</span></h1>
+
+				<?php else : ?>
+
+					<h1><?php echo get_the_title( $post->ID ) ?></h1>
+
+				<?php endif ?>
+
+			</div>
+
+		<?php endif;
+
+	}
+
+	/**
+	 * Add pagination to blog archive templates
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public static function ping_pagination() {
+
+		if( is_singular() )
+			return;
+
+		global $wp_query;
+
+		// Stop execution if there's only 1 page
+		if( $wp_query->max_num_pages <= 1 )
+			return;
+
+		$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
+		$max   = intval( $wp_query->max_num_pages );
+
+		// Add current page to the array
+		if ( $paged >= 1 )
+			$links[] = $paged;
+
+		// Add the pages around the current page to the array
+		if ( $paged >= 3 ) {
+			$links[] = $paged - 1;
+			$links[] = $paged - 2;
+		}
+
+		if ( ( $paged + 2 ) <= $max ) {
+			$links[] = $paged + 2;
+			$links[] = $paged + 1;
+		}
+
+		echo '<div class="blog-navigation"><span>PAGE</span><ul>';
+
+		// Link to first page, plus ellipses if necessary
+		if ( ! in_array( 1, $links ) ) {
+
+			$class = 1 == $paged ? ' class="active"' : '';
+
+			printf( '<li%s><a href="%s">%s</a></li>', $class, esc_url( get_pagenum_link( 1 ) ), '1' );
+
+			if ( ! in_array( 2, $links ) )
+				echo '<li>…</li>';
+		}
+
+		// Link to current page, plus 2 pages in either direction if necessary
+		sort( $links );
+		foreach ( (array) $links as $link ) {
+			$class = $paged == $link ? ' class="active"' : '';
+			printf( '<li%s><a href="%s">%s</a></li>', $class, esc_url( get_pagenum_link( $link ) ), $link );
+		}
+
+		// Link to last page, plus ellipses if necessary
+		if ( ! in_array( $max, $links ) ) {
+			if ( ! in_array( $max - 1, $links ) )
+				echo '<li>…</li>' . "\n";
+
+			$class = $paged == $max ? ' class="active"' : '';
+			printf( '<li class="last-nav" %s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $max ) ), $max );
+		}
+
+		echo '</ul></div>';
+
+	}
+
+	/**
+	 * Show random testimonies from clients
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	function rand_testimony() {
+
+		global $wpdb;
+
+		//get a random testimonial
+		$testimonials = "
+			SELECT *
+			FROM $wpdb->posts wposts, $wpdb->postmeta metadate, $wpdb->postmeta metatime
+			WHERE (wposts.ID = metadate.post_id AND wposts.ID = metatime.post_id)
+			AND wposts.post_type = 'testimonial'
+			AND wposts.post_status = 'publish'
+			ORDER BY RAND() 
+			LIMIT 1
+		";
+
+		$testimony = $wpdb->get_results( $testimonials, OBJECT );
+
+		if( $testimony ) :
+
+			global $post;
+
+			foreach ( $testimony as $post ) :
+
+				setup_postdata( $post ) ?>
+
+				<blockquote>
+
+					<?php
+
+					$text = get_the_content();
+
+					$q = substr( $text, 0, 180) ?>
+
+					<q><p><?php echo esc_html( $q ) ?><?php echo ( strlen( $text ) > 180 ) ? '...' : '' ?></p></q>
+
+					<footer>–<?php the_title() ?></footer>
+
+				</blockquote>
+
+			<?php endforeach;
+
+		endif; wp_reset_postdata();
+
+	}
+
 }

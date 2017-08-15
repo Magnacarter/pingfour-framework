@@ -20,7 +20,7 @@ module.exports = function ( moduleRoot ) {
 
 	var moduleSettings = {
 		package: 'pingfour',
-		domain: 'pingfour.dev',
+		domain: 'cwstest.dev',
 		// If this is for a theme, set to `true`; else, set to `false`.
 		isTheme: false,
 		i18n: {

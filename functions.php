@@ -69,10 +69,11 @@ add_action( 'init', __NAMESPACE__ . '\add_excerpts_to_pages' );
 /**
  * Filter the excerpt length
  *
+ * @since 1.0.0
  * @return int 80
  * @add_filter excerpt_length
  */
-function wpdocs_custom_excerpt_length( $length ) {
-	return 80;
+function custom_excerpt_length( $length ) {
+	return 30;
 }
-add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+add_filter( 'excerpt_length', __NAMESPACE__ . '\custom_excerpt_length', 999 );

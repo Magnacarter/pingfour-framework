@@ -1,10 +1,10 @@
 <?php
 /**
- * Blog Archive
+ * Archive template
  *
- * @package Pingfour/theme/
+ * @package Pingfour\theme
  * @since 1.0.0
- * @author Adam Carter
+ * @author Pingfour
  * @licence GNU-2.0+
  */
 
@@ -18,19 +18,23 @@ get_header() ?>
 
 			<div class="content col-md-8">
 
-				<header>
+				<div class="h1-title">
 
 					<?php Pingfour_Theme::h1_title() ?>
 
-				</header>
+				</div>
 
-				<?php get_template_part( 'partials/excerpt-loop' ) ?>
+				<div class="inner-content">
 
-				<section class="blog-pagination">
+					<?php get_template_part( 'partials/excerpt-loop' ) ?>
+
+				</div><!--.inner-content-->
+
+				<div class="blog-pagination">
 
 					<?php Pingfour_Theme::ping_pagination() ?>
 
-				</section><!--.blog-pagination-->
+				</div><!--.blog-pagination-->
 
 			</div><!--.content-->
 
