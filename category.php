@@ -10,7 +10,7 @@
 
 use Pingfour\theme\includes\Pingfour_Theme;
 
-get_header() ?>
+get_header(); ?>
 
 	<section id="blog" class="container">
 
@@ -18,29 +18,29 @@ get_header() ?>
 
 			<div class="content col-md-8">
             
-				<?php Pingfour_Theme::h1_title() ?>
+				<?php Pingfour_Theme::h1_title(); ?>
 
 				<div class="inner-content">
 
-					<?php get_template_part( 'partials/excerpt-loop' ) ?>
+					<?php get_template_part( 'partials/excerpt-loop' ); ?>
 
-				</div><!--.inner-content-->
+				</div><!-- .inner-content -->
 
 				<div class="blog-pagination">
 
-					<?php Pingfour_Theme::ping_pagination() ?>
+					<?php Pingfour_Theme::ping_pagination(); ?>
 
-				</div><!--.blog-pagination-->
+				</div><!-- .blog-pagination -->
 
-			</div><!--.content-->
+			</div><!-- .content -->
 
 			<aside id="sidebar" class="col-md-4">
 
 
-			</aside><!--#sidebar-->
+			</aside><!-- #sidebar -->
 
-		</div><!--.row-->
+		</div><!-- .row -->
 
-	</section><!--.container-->
+	</section><!-- .container -->
 
-<?php get_footer() ?>
+<?php get_footer(); ?>

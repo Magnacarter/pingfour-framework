@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html <?php language_attributes() ?>>
+<html <?php language_attributes(); ?>>
 
 	<head>
 
@@ -24,7 +24,7 @@
 		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
-		<?php wp_head() ?>
+		<?php wp_head(); ?>
 
 		<?php 
 			global $post;
@@ -36,7 +36,7 @@
 
 	</head>
 
-	<body <?php body_class( $classes ) ?>>
+	<body <?php body_class( $classes ); ?>>
 
 	<div id="wrapper">
 
@@ -50,7 +50,7 @@
 
                         <a href="/"><h2>PingFour</h2></a>
 
-					</div><!--.header-logo-->
+					</div><!-- .header-logo -->
 
 					<div class="navbar col-sm-8 no-pad">
 
@@ -61,18 +61,18 @@
 								'theme_location'    => 'header-menu',
 								'menu_class'        => 'nav navbar-nav',
 								'walker'            => new Walker_Nav_Primary()
-							) ) ?>
+							) ); ?>
 
-						</div><!--navbar-collapse-->
+						</div><!-- .navbar-collapse -->
 
-					</div><!--.navbar-->
+					</div><!-- .navbar -->
 
-				</div><!--.container-->
+				</div><!-- .container -->
 
-			</nav><!--nav-main-->
+			</nav><!-- #nav-main -->
 
-		</header><!--#header-->
+		</header><!-- #header -->
 
-	</div><!--.wrapper-->
+	</div><!-- .wrapper -->
 
 	<main id="main" role="main">

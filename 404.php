@@ -7,7 +7,7 @@
  * @author Pingfour
  * @licence GNU-2.0+
  */
-get_header() ?>
+get_header(); ?>
 
 	<section id="error" class="container">
 
@@ -15,32 +15,34 @@ get_header() ?>
 
 			<div class="content col-md-8">
 
-				<div class="h1-title">
+				<header class="h1-title">
 
 					<h1>Page not found</h1>
 
-				</div><!--.h1-title-->
+					<div class="subheadline">
 
-				<div class="subheadline">
+						<h2>Oops, we can’t seem to find the page you’re looking for.</h2>
 
-					<h2>Oops, we can’t seem to find the page you’re looking for.</h2>
+					</div><!--.subheadline-->
 
-				</div><!--.subheadline-->
+				</header><!-- .h1-title -->
 
 				<div class="inner-content">
 
 					<p>The page you were looking for appears to have been moved, deleted or does not exist. You could go back to where you were or head straight to our <a href="/">home page</a>.</p>
 
-				</div><!--.inner-content-->
+				</div><!-- .inner-content -->
 
-			</div><!--.content-->
+			</div><!-- .content -->
 
-			<div id=sidebar class="col-md-4">
+			<aside id=sidebar class="col-md-4">
 
-			</div>
 
-		</div><!--.row-->
 
-	</section><!--.container-->
+			</aside>
 
-<?php get_footer() ?>
+		</div><!-- .row -->
+
+	</section><!-- .container -->
+
+<?php get_footer(); ?>

@@ -7,16 +7,16 @@
  * @author Adam Carter
  * @licence GNU-2.0+
  */
-get_header() ?>
+get_header(); ?>
 
-	<?php if( is_page( 'site-map' ) ) : ?>
+	<?php if ( is_page( 'site-map' ) ) : ?>
 
-		<?php get_template_part( 'partials/sitemap' ) ?>
+		<?php get_template_part( 'partials/sitemap' ); ?>
 
 	<?php else : ?>
 
-		<?php get_template_part( 'partials/standard-page' ) ?>
+		<?php get_template_part( 'partials/standard-page' ); ?>
 
-	<?php endif ?>
+	<?php endif; ?>
 
-<?php get_footer() ?>
+<?php get_footer(); ?>

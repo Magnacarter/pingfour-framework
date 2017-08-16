@@ -8,34 +8,51 @@
  * @licence GNU-2.0+
  */
 
-if( have_comments() ) : ?>
+/*
+ * If the current post is protected by a password and the visitor has not yet
+ * entered the password we will return early without loading the comments.
+ */
+if ( post_password_required() )
+	return;
+?>
 
-	<section id="post-comments">
+<div id="comments" class="comments-area">
 
-		<h4 id="comments"><?php comments_number( '0', 'One Comment', '% Comments' ) ?></h4>
+	<?php if ( have_comments() ) : ?>
+		<h2 class="comments-title">
+			<?php
+			printf( _nx( 'One thought on "%2$s"', '%1$s thoughts on "%2$s"', get_comments_number(), 'comments title', 'pingfour' ),
+				number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
+			?>
+		</h2>
 
-		<ul class="comment-list">
+		<ol class="comment-list">
+			<?php
+			wp_list_comments( array(
+				'style'       => 'ol',
+				'short_ping'  => true,
+				'avatar_size' => 74,
+			) );
+			?>
+		</ol><!-- .comment-list -->
 
-			<?php wp_list_comments( 'callback=set_custom_commments' ) ?>
+		<?php
+		// Are there comments to navigate through?
+		if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
+			?>
+			<nav class="navigation comment-navigation" role="navigation">
+				<h1 class="screen-reader-text section-heading"><?php _e( 'Comment navigation', 'pingfour' ); ?></h1>
+				<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'pingfour' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'pingfour' ) ); ?></div>
+			</nav><!-- .comment-navigation -->
+		<?php endif; // Check for comment navigation ?>
 
-		</ul>
+		<?php if ( ! comments_open() && get_comments_number() ) : ?>
+			<p class="no-comments"><?php _e( 'Comments are closed.' , 'pingfour' ); ?></p>
+		<?php endif; ?>
 
-	</section>
+	<?php endif; // have_comments() ?>
 
-<?php endif;
+	<?php comment_form(); ?>
 
-$args = array(
-	'id_form'           => 'commentform',
-	'class_form'        => 'noauto',
-	'id_submit'         => 'submit_comment',
-	'class_submit'      => 'submit_comment',
-	'name_submit'       => 'submit_comment',
-	'title_reply'       => __( 'Leave a Reply' ),
-	'title_reply_to'    => __( 'Leave a Reply to %s' ),
-	'cancel_reply_link' => __( 'Cancel Reply' ),
-	'label_submit'      => __( 'Post Comment' )
-);
-
-comment_form( $args );
-
-
+</div><!-- #comments -->

@@ -8,7 +8,7 @@
  * @licence GNU-2.0+
  */
 
-get_header() ?>
+get_header(); ?>
 
 	<section id="wrapper" class="container">
 
@@ -22,4 +22,4 @@ get_header() ?>
 
 	</section>
 
-<?php get_footer() ?>
+<?php get_footer(); ?>

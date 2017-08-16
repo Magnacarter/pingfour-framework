@@ -24,11 +24,11 @@ require_once STYLESHEETPATH . '/includes/walker.php';
  * @add_action wp_enqueue_scripts
  */
 function enqueue_scripts() {
-	wp_enqueue_style  ( 'pingfour-bootstrap',       get_template_directory_uri() . '/assets/dist/css/bootstrap.css' );
-	wp_enqueue_style  ( 'pingfour-main',            get_template_directory_uri() . '/assets/dist/css/main.css', false, CSS_VERS );
-	wp_enqueue_style  ( 'pingfour-stylesheet',      get_template_directory_uri() . '/style.css', false, CSS_VERS );
-	wp_enqueue_script ( 'pingfour-bootstrap-js',    get_template_directory_uri() . '/assets/dist/js/bootstrap.min.js', array( 'jquery' ), null, true );
-	wp_enqueue_script ( 'pingfour-theme-js',        get_template_directory_uri() . '/assets/dist/js/theme.js', array( 'jquery' ), JS_VERS, true );
+	wp_enqueue_style  ( 'pingfour-bootstrap',    get_template_directory_uri() . '/assets/dist/css/bootstrap.css' );
+	wp_enqueue_style  ( 'pingfour-main',         get_template_directory_uri() . '/assets/dist/css/main.css', false, CSS_VERS );
+	wp_enqueue_style  ( 'pingfour-stylesheet',   get_template_directory_uri() . '/style.css', false, CSS_VERS );
+	wp_enqueue_script ( 'pingfour-bootstrap-js', get_template_directory_uri() . '/assets/dist/js/bootstrap.min.js', array( 'jquery' ), null, true );
+	wp_enqueue_script ( 'pingfour-theme-js',     get_template_directory_uri() . '/assets/dist/js/theme.js', array( 'jquery' ), JS_VERS, true );
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_scripts' );
 

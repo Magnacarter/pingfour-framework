@@ -7,7 +7,7 @@
  * @author Pingfour
  * @licence GNU-2.0+
  */
-get_header() ?>
+get_header(); ?>
 
 	<section id="author" class="container">
 
@@ -15,19 +15,19 @@ get_header() ?>
 
 			<div class="content col-md-8">
 
-				<?php the_author_meta( 'description' ) ?>
+				<?php the_author_meta( 'description' ); ?>
 
-				<?php get_template_part( 'partials/excerpt-loop' ) ?>
+				<?php get_template_part( 'partials/excerpt-loop' ); ?>
 
-			</div><!--.content-->
+			</div><!-- .content -->
 
 			<aside id="sidebar" class="col-md-4">
 
 
-			</aside><!--#sidebar-->
+			</aside><!-- #sidebar -->
 
-		</div><!--row-->
+		</div><!-- .row -->
 
-	</section><!--.container-->
+	</section><!-- .container -->
 
-<?php get_footer() ?>
+<?php get_footer(); ?>
